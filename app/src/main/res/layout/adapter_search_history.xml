@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:src="@mipmap/ic_search_history" />
+
+    <TextView
+        android:id="@+id/tv_record"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_weight="1"
+        android:text="阿珍爱上了阿强"
+        android:textColor="@color/text_gray"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/iv_remove"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@mipmap/ic_close" />
+
+</LinearLayout>

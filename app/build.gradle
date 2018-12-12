@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+//    signingConfigs {
+//
+//        debug {
+//            keyAlias 'androiddebugkey'
+//            keyPassword 'android'
+//            storeFile file('/Users/kokawaki/.android/debug.keystore')
+//            storePassword 'android'
+//        }
+//        releaseConfig {
+//            storeFile     "${System.env.MY_APP_PRIVATE_KEY}"
+//            keyAlias      "${System.env.MY_APP_ALIAS}"
+//            storePassword "${System.env.MY_APP_STORE_PW}"
+//            keyPassword   "${System.env.MY_APP_PW}"
+//        }
+//    }
+}
+
+
+dependencies {
+
+    //解决support包版本号不统一问题.
+    configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v13'
+        all*.exclude group: 'com.android.support', module: 'support-v4'
+    }
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    implementation project(':component_base')
+}
